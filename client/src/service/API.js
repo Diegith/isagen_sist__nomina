@@ -1,5 +1,5 @@
 import axios from 'axios';
-const userURL = 'http://localhost:4000/usuarios';
+const userURL = 'http://localhost:8000/usuarios';
 const permisosURL = 'http://localhost:4000/permisos';
 const vacacionesURL = 'http://localhost:4000/vacaciones';
 
@@ -8,7 +8,7 @@ export const getUsers = async (id) => {
     return await axios.get(`${userURL}/${id}`); // 'http://localhost:4000/usuarios';
 }
 export const addUser = async(usuarios) => {
-    return await axios.post(`${userURL}/usuarios/crear`, usuarios);
+    return await axios.post(`${userURL}/crear`, usuarios);
 }
 export const editUser = async (id, user) => {
     return await axios.put(`${userURL}/${id}`, user);

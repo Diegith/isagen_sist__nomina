@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
-import { addUser } from '../../service/API';
+import { addUser } from '../../../service/API';
 import { useNavigate } from 'react-router-dom';
 
 const useStyle =  makeStyles({
@@ -22,8 +22,8 @@ const initialValues = {
     id:null,
     names:"",
     lastNames: "",
-    nPhone: 0,
-    nIdent: 0,
+    nPhone: "",
+    nIdentf: "",
     email: "",
     userName: "",
     password: "",
@@ -34,7 +34,7 @@ const initialValues = {
 
 const AddUser = () => {
     const [ user, setUser ] = useState(initialValues);
-    const {names, lastNames, nPhone, nIdent, email, userName, password, dateAdmission, typeUser } = user;
+    const {names, lastNames, nPhone, nIdentf, email, userName, password, dateAdmission, typeUser } = user;
     const classes = useStyle();
     const navigate = useNavigate();
     const onValueChange = (e) => {
@@ -70,7 +70,7 @@ const AddUser = () => {
                         <br/>
                         <FormControl>
                             <InputLabel>Numero de identificacion</InputLabel>
-                            <Input onChange={(e) => onValueChange(e)} name='nIdent'  value={nIdent}/>
+                            <Input onChange={(e) => onValueChange(e)} name='nIdentf'  value={nIdentf}/>
                         </FormControl>
                         <br/>
                         <FormControl>

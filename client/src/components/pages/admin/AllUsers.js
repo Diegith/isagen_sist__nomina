@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUsers, deleteUser } from "../../service/API";
+import { getUsers, deleteUser } from "../../../service/API";
 import { Table } from 'react-bootstrap';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -82,25 +82,25 @@ const AllUsers = () => {
                                         </tr>
                                     </thead>
                                     {
-                                    users.map(u => <tbody>
-                                        <tr className="text-md-center"> 
-                                            <td key={u.id}>
-                                                {u.id}                               
+                                    users.map(u => <tbody key={u._id}>
+                                        <tr className="text-md-center" > 
+                                            <td>
+                                                {u._id}                               
                                             </td>
-                                            <td key={u.names}>
+                                            <td>
                                                 {u.names} {u.lastNames}                         
                                             </td>
-                                            <td key={u.typeUser}>
+                                            <td>
                                                 {u.typeUser}                               
                                             </td>
-                                            <td key={u.state}>
+                                            <td>
                                                 {u.state}                                                             
                                             </td>
                                             <td key="acciones">
-                                                <Link to={`/usuarios/editar/${u.id}`}>
+                                                <Link to={`/usuarios/editar/${u._id}`}>
                                                     <button className='btn btn-primary' style={{marginRight: 10}}>Editar</button>
                                                 </Link>                                                
-                                                <button className='btn btn-secondary' onClick={() => deleteUserData(u.id)}>Eliminar</button>                                                           
+                                                <button className='btn btn-secondary' onClick={() => deleteUserData(u._id)}>Eliminar</button>                                                           
                                             </td>
                                         </tr>
                                     </tbody>)}

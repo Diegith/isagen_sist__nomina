@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,8 @@
     "concurrently": "^6.4.0",
     "core-js": "^3.20.0",
     "express": "^4.17.2",
-    "mongoose": "^6.1.2"
+    "mongoose": "^6.1.2",
+    "nodemodule": "^0.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

@@ -47,7 +47,7 @@ export default function Navbar() {
     return (
         <>
         <div className="bg">
-            <nav className='navbar'>                
+            <nav className='navbar mr-auto'>                
                 <Link to='/' className="navbar-logo"  onClick={closeMobileMenu}>
                 <img
                     src="/logo_ISAGEN.png"
@@ -114,8 +114,8 @@ export default function Navbar() {
                         </Link> 
                         {dropdown1 && <Dropdown1 />}
                     </li>                    
-                </ul>                    
-                <Button />
+                </ul>         
+              <Button />  
             </nav> 
             </div>
         </>
