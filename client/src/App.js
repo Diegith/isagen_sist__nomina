@@ -1,10 +1,13 @@
 import AppRouter from "./components/routers/AppRouter";
 import './App.css';
+import AuthProvider from "./components/auth/AuthProvider";
 
 function App() {
   return (
       <>
-        <AppRouter />
+        <AuthProvider >
+          <AppRouter />
+        </AuthProvider>
       </>
   );
 }

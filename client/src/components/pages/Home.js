@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import '../navbar/Navbar.css';
-import AllPermisos from './AllPermisos';
+import Reportes from './Reportes';
 
 export default function Home(){    
     return (
         <Fragment>
-            <AllPermisos />           
+            <Reportes />          
         </Fragment>  
     );
 }

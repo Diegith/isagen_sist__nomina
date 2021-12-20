@@ -48,7 +48,7 @@ export default function Navbar() {
         <>
         <div className="bg">
             <nav className='navbar mr-auto'>                
-                <Link to='/' className="navbar-logo"  onClick={closeMobileMenu}>
+                <Link to='/home' className="navbar-logo"  onClick={closeMobileMenu}>
                 <img
                     src="/logo_ISAGEN.png"
                     width="45"
@@ -62,22 +62,14 @@ export default function Navbar() {
                     />
                 </div>
                 <ul className={click ? 'nav-menu active': 'nav-menu'}>                    
-                                       
-                <li className ='nav-item'>
-                        <Link 
-                        to='/' 
-                        className='nav-links' 
-                        onClick={closeMobileMenu}>
-                        Inicio
-                        </Link> 
-                    </li>
+                         
                     <li
                         className='nav-item'
                         onMouseEnter={onMouseEnter}
                         onMouseLeave={onMouseLeave}
                     >
                         <Link 
-                        to='/solicitudes' 
+                        to='/permisos' 
                         className='nav-links' 
                         onClick={closeMobileMenu}
                         >
@@ -100,20 +92,29 @@ export default function Navbar() {
                         onClick={closeMobileMenu}>
                         Reportes
                         </Link> 
-                    </li><li
+                    </li>
+                    <li
                         className='nav-item'
                         onMouseEnter={onMouseEnter1}
                         onMouseLeave={onMouseLeave1}
                     >
                         <Link 
-                        to='/solicitudes' 
+                        to='/certificadolaboral' 
                         className='nav-links' 
                         onClick={closeMobileMenu1}
                         >
                             Descargar certificados <i className='fas fa-caret-down'></i>
                         </Link> 
                         {dropdown1 && <Dropdown1 />}
-                    </li>                    
+                    </li>                
+                    <li className ='nav-item'>
+                        <Link 
+                        to='/login' 
+                        className='nav-links' 
+                        onClick={closeMobileMenu}>
+                        Iniciar sesión
+                        </Link> 
+                    </li>                  
                 </ul>         
               <Button />  
             </nav> 

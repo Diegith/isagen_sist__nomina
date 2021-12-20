@@ -17,6 +17,7 @@ import EditPermiso from '../pages/EditPermiso';
 import AddPermiso from '../pages/AddPermiso';
 import Login from '../pages/Login';
 import Layout from '../layouts/Layout';
+import { PublicRoute } from './PublicRoute';
 
 export default function AppRouter() {
     return (
@@ -24,22 +25,51 @@ export default function AppRouter() {
     <Router>
       <Layout>
       <Routes>
-        <Route path='/login' element={<Login /> } />
-        <Route path='/' element={<Home/>} />
-        <Route path='/permisos' element={<AllPermisos /> } />
-        <Route path='/vacaciones' element={<AllHolidays /> } />
-        <Route path='/usuarios' element={<AllUsers />} />
-        <Route path='/reportes' element={<Reportes/>} />
-        <Route path='/nomina' element={<NominaForm/>} />
+        <Route path='/' element={<PublicRoute /> }>          
+          <Route path='/login' element={<Login /> } />
+        </Route>          
+        <Route path='/' element={<PublicRoute /> }>          
+          <Route path='/home' element={<Home /> } />
+        </Route>          
+        <Route path='/' element={<PublicRoute /> }>          
+          <Route path='/permisos' element={<AllPermisos /> } />        
+        </Route>         
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/vacaciones' element={<AllHolidays /> } />                  
+        </Route>        
+        <Route path='/' element={<PrivateRoute hasRole='admin'/>}>
+          <Route path='/usuarios' element={<AllUsers />} />
+        </Route>        
+        <Route path='/' element={<PrivateRoute />}>
+          <Route path='/reportes' element={<Reportes/>} />        
+        </Route>      
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/nomina' element={<NominaForm/>} />
+        </Route>        
         <Route path='/' element={<PrivateRoute />}>
             <Route path='usuarios/crear' element={<AddUser /> } />
+        </Route> 
+        <Route path='/' element={<PrivateRoute />}>
+          <Route path='/usuarios/editar/:id' element={<EditUser /> } />        
+        </Route>      
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/vacaciones/solicitar' element={<AddHoliday />} />
         </Route>        
-        <Route path='/usuarios/editar/:id' element={<EditUser /> } />        
-        <Route path='/vacaciones/solicitar' element={<AddHoliday />} />
-        <Route path='/vacaciones/editar/:id' element={<EditHoliday /> } />        
-        <Route path='/permisos/crear' element={<AddPermiso /> } />
-        <Route path='/permisos/editar/:id' element={<EditPermiso /> } />        
-        <Route path='certificadolaboral' element={<CertificadoLaboralForm />} />
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/vacaciones/editar/:id' element={<EditHoliday /> } />        
+        </Route>  
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/vacaciones/editar/:id' element={<EditHoliday /> } />        
+        </Route>            
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/permisos/crear' element={<AddPermiso />} />
+        </Route>            
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='/permisos/editar/:id' element={<EditPermiso /> } />        
+        </Route>             
+        <Route path='/' element={<PublicRoute /> }>
+          <Route path='certificadolaboral' element={<CertificadoLaboralForm />} />          
+        </Route>          
         
         <Route path="*" element={<NotFound />} />       
       </Routes>
